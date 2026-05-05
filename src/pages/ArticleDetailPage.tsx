@@ -79,6 +79,12 @@ export default function ArticleDetailPage() {
                 <span className="font-semibold">Publié le:</span>{" "}
                 {new Date(article.createdAt).toLocaleDateString("fr-FR")}
               </p>
+              <button
+                onClick={() => navigate("/favorites")}
+                className="text-blue-500 hover:underline mb-6 text-left"
+              >
+                &#9734; Ajouter au favoris
+              </button>
             </div>
           </div>
         </div>
