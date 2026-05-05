@@ -6,8 +6,6 @@ import { CATEGORIES, CONDITIONS } from "../types/article";
 
 export default function PublishPage() {
   const navigate = useNavigate();
-
-  // les champs pour le formulaire
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
@@ -16,13 +14,10 @@ export default function PublishPage() {
   const [size, setSize] = useState("");
   const [imageUrl, setImageUrl] = useState("");
 
-  // l'erreur pour la validation
   const [errors, setErrors] = useState<Record<string, string>>({});
 
-  // l'erreur qui vienr de l'API
   const [apiError, setApiError] = useState("");
 
-  // histoire de desactiver le bouton pendant l'envoi
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   function validate() {
@@ -62,13 +57,7 @@ export default function PublishPage() {
     setIsSubmitting(true);
     try {
       const article = await api.post<Article>("/api/articles", {
-        title,
-        description,
-        price: Number(price),
-        category,
-        condition,
-        size,
-        imageUrl,
+        title, description, price: Number(price), category, condition, size, imageUrl,
       }); navigate(`/articles/${article.id}`);
     } catch (err) {
       setApiError(err instanceof Error ? err.message : " une erreur est srvenue ");
