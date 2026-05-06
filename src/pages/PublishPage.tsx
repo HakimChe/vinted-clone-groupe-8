@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { api } from "../services/api";
 import type { Article } from "../types/article";
@@ -15,10 +15,33 @@ export default function PublishPage() {
   const [imageUrl, setImageUrl] = useState("");
 
   const [errors, setErrors] = useState<Record<string, string>>({});
-
   const [apiError, setApiError] = useState("");
-
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isDraftLoaded, setIsDraftLoaded] = useState(false); //permet d'eviter d'ecraser le brouillon 
+
+  useEffect(() => {
+    const draft = localStorage.getItem("vinted_draft");
+    if (draft) {
+      try {
+        const parsed = JSON.parse(draft);
+        setTitle(parsed.title || "");
+        setDescription(parsed.description || "");
+        setPrice(parsed.price || "");
+        setCategory(parsed.category || "");
+        setCondition(parsed.condition || "");
+        setSize(parsed.size || "");
+        setImageUrl(parsed.imageUrl || "");
+      } catch (e) {}
+    }
+    setIsDraftLoaded(true);
+  }, []);
+
+  useEffect(() => {
+    if (isDraftLoaded) {
+      const draft = { title, description, price, category, condition, size, imageUrl };
+      localStorage.setItem("vinted_draft", JSON.stringify(draft));
+    }
+  }, [title, description, price, category, condition, size, imageUrl, isDraftLoaded]);
 
   function validate() {
     const newErrors: Record<string, string> = {};
@@ -58,7 +81,9 @@ export default function PublishPage() {
     try {
       const article = await api.post<Article>("/api/articles", {
         title, description, price: Number(price), category, condition, size, imageUrl,
-      }); navigate(`/articles/${article.id}`);
+      });
+      localStorage.removeItem("vinted_draft"); //permet de supprimer une fois l'article publié
+      navigate(`/articles/${article.id}`);
     } catch (err) {
       setApiError(err instanceof Error ? err.message : " une erreur est srvenue ");
     } finally {

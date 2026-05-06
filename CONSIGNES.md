@@ -289,10 +289,10 @@ Les données sont **en mémoire** : elles sont réinitialisées à chaque redém
 
 **Critères de validation** :
 
-- [ ] Le formulaire affiche tous les champs
-- [ ] Les catégories et états sont proposés en menu déroulant (issus de `CATEGORIES` et `CONDITIONS`)
-- [ ] Soumettre un formulaire vide affiche les erreurs de validation
-- [ ] Soumettre un formulaire valide crée l'article et redirige vers sa page de détail
+- [X] Le formulaire affiche tous les champs
+- [X] Les catégories et états sont proposés en menu déroulant (issus de `CATEGORIES` et `CONDITIONS`)
+- [X] Soumettre un formulaire vide affiche les erreurs de validation
+- [X] Soumettre un formulaire valide crée l'article et redirige vers sa page de détail
 - [ ] L'article apparaît dans le catalogue après création
 - [ ] Une erreur API est affichée à l'utilisateur
 
@@ -310,11 +310,11 @@ Les données sont **en mémoire** : elles sont réinitialisées à chaque redém
 
 **Critères de validation** :
 
-- [ ] La page affiche uniquement les articles de l'utilisateur
+- [X] La page affiche uniquement les articles de l'utilisateur
 - [ ] La page est vide au démarrage (les articles du seed n'appartiennent pas à l'utilisateur)
-- [ ] Après création d'un article, il apparaît dans "Mes annonces"
-- [ ] Cliquer sur "Supprimer" demande confirmation (par ex. `window.confirm`)
-- [ ] Confirmer la suppression retire l'article de la liste
+- [X] Après création d'un article, il apparaît dans "Mes annonces"
+- [X] Cliquer sur "Supprimer" demande confirmation (par ex. `window.confirm`)
+- [X] Confirmer la suppression retire l'article de la liste
 - [ ] L'article supprimé n'apparaît plus dans le catalogue
 
 ### 6.5 Favoris (2 pts)
@@ -358,9 +358,9 @@ Choisissez **au moins 2** fonctionnalités parmi les 4 suivantes. Chaque fonctio
 
 **Critères de validation** :
 
-- [ ] Remplir partiellement le formulaire, quitter la page, revenir : les champs sont pré-remplis
-- [ ] La sauvegarde est automatique (pas de bouton)
-- [ ] Après publication réussie, revenir sur le formulaire : les champs sont vides (brouillon supprimé)
+- [X] Remplir partiellement le formulaire, quitter la page, revenir : les champs sont pré-remplis
+- [X] La sauvegarde est automatique (pas de bouton)
+- [X] Après publication réussie, revenir sur le formulaire : les champs sont vides (brouillon supprimé)
 
 ### 7.2 Édition d'annonce (1,5 pts)
 
@@ -418,10 +418,10 @@ Choisissez **au moins 2** fonctionnalités parmi les 4 suivantes. Chaque fonctio
 
 **Critères de validation** :
 
-- [ ] Redimensionner le navigateur à 375px de large : le contenu reste lisible et utilisable
-- [ ] La navigation fonctionne sur mobile
-- [ ] Les formulaires sont remplissables sur mobile
-- [ ] Les images ne débordent pas de l'écran
+- [X] Redimensionner le navigateur à 375px de large : le contenu reste lisible et utilisable
+- [X] La navigation fonctionne sur mobile
+- [X] Les formulaires sont remplissables sur mobile
+- [X] Les images ne débordent pas de l'écran
 
 ---
 
